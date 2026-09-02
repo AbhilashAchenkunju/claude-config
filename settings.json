@@ -3,9 +3,6 @@
     "allow": [
       "Read(./**)",
       "Edit(./**)",
-      "Write(./**)",
-      "MultiEdit(./**)",
-      "NotebookEdit(./**)",
       "Bash(grep:*)",
       "Bash(rg:*)",
       "Bash(ls:*)",
@@ -34,6 +31,7 @@
       "Bash(git stash list:*)"
     ]
   },
+  "model": "opus[1m]",
   "hooks": {
     "UserPromptSubmit": [
       {
@@ -51,6 +49,10 @@
           {
             "type": "command",
             "command": "python3 \"$HOME/.claude/hooks/agent-status.py\" idle"
+          },
+          {
+            "type": "command",
+            "command": "python3 \"$HOME/.claude/hooks/workflow-todo.py\""
           }
         ]
       }
@@ -73,7 +75,8 @@
   },
   "enabledPlugins": {
     "figma@claude-plugins-official": true,
-    "github@claude-plugins-official": true
+    "github@claude-plugins-official": true,
+    "typescript-lsp@claude-plugins-official": true
   },
   "extraKnownMarketplaces": {
     "claude-code-plugins": {
@@ -82,5 +85,6 @@
         "repo": "anthropics/claude-code"
       }
     }
-  }
+  },
+  "theme": "dark"
 }
